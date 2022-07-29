@@ -1,0 +1,12 @@
+prefix=/home/dozeduck/workspace/PLUMED
+exec_prefix=/home/dozeduck/workspace/PLUMED
+includedir=/home/dozeduck/workspace/PLUMED/include
+libdir=/home/dozeduck/workspace/PLUMED/lib
+
+Name: plumed
+Description: Plumed library  (full version, including internals)
+URL: http://www.plumed.org
+Version: 2.4.8
+Cflags: -I${includedir}  -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -D__PLUMED_HAS_MOLFILE_PLUGINS=1 -D__PLUMED_HAS_READDIR_R=1 -D__PLUMED_HAS_CREGEX=1 -D__PLUMED_HAS_DLOPEN=1 -D__PLUMED_HAS_EXECINFO=1 -D__PLUMED_HAS_ZLIB=1 -D__PLUMED_HAS_GSL=1 -DNDEBUG=1 -D__PLUMED_HAS_EXCEPTIONS=1 -D_REENTRANT=1
+Libs: -L${libdir} -lplumed 
+Conflicts: 

@@ -1,0 +1,9 @@
+****************************************
+Short helpfile for action SELECTOR
+****************************************
+
+The following arguments are compulsory: 
+
+                   NAME - name of the SELECTOR 
+                  VALUE - set (initial) value of the SELECTOR 
+

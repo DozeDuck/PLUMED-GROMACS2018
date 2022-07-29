@@ -1,0 +1,6 @@
+#!/bin/bash
+# Every time before running the command please use this command in terminal:
+export PLUMED=$the_address_where_you_put_PLUMED
+export PLUMED_ROOT=$PLUMED/lib/plumed
+export PATH=$PATH:/$PLUMED/bin
+

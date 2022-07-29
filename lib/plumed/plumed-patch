@@ -1,0 +1,8 @@
+#! /bin/bash
+echo 'NOTE: shell only version, useful when plumed is cross compiled' >&2
+export PLUMED_IS_INSTALLED=yes
+export PLUMED_ROOT="${PLUMED_ROOT-/home/dozeduck/workspace/PLUMED/lib/plumed}"
+export PLUMED_INCLUDEDIR="${PLUMED_INCLUDEDIR-/home/dozeduck/workspace/PLUMED/include}"
+export PLUMED_HTMLDIR="${PLUMED_HTMLDIR=/home/dozeduck/workspace/PLUMED/share/doc/plumed}"
+export PLUMED_PROGRAM_NAME="${PLUMED_PROGRAM_NAME-plumed}"
+source "$PLUMED_ROOT"/scripts/patch.sh

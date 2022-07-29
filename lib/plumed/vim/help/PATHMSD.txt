@@ -1,0 +1,28 @@
+****************************************
+Short helpfile for action PATHMSD
+****************************************
+
+The following arguments are compulsory: 
+
+                 LAMBDA - the lambda parameter is needed for smoothing, is in the 
+                          units of plumed 
+              REFERENCE - the pdb is needed to provide the various milestones 
+
+In addition you may use the following options: 
+
+  NUMERICAL_DERIVATIVES - ( default=off ) calculate the derivatives for these 
+                          quantities numerically 
+             NEIGH_SIZE - size of the neighbor list 
+           NEIGH_STRIDE - how often the neighbor list needs to be calculated in time 
+                          units 
+                EPSILON - (default=-1) the maximum distance between the close and the 
+                          current structure, the positive value turn on the close structure 
+                          method 
+              LOG-CLOSE - (default=0) value 1 enables logging regarding the close 
+                          structure 
+            DEBUG-CLOSE - (default=0) value 1 enables extensive debugging info 
+                          regarding the close structure, the simulation will run much slower 
+              LOG_CLOSE - same as LOG-CLOSE 
+            DEBUG_CLOSE - same as DEBUG-CLOSE 
+
+

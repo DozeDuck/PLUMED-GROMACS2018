@@ -1,0 +1,3 @@
+# PLUMED: runtime installation
+set(PLUMED_LOAD  "/home/dozeduck/workspace/PLUMED/lib/libplumedWrapper.a" -ldl  )
+set(PLUMED_DEPENDENCIES )

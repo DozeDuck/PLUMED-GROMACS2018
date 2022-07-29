@@ -1,0 +1,3 @@
+# PLUMED: shared installation
+set(PLUMED_LOAD  "/home/dozeduck/workspace/PLUMED/lib/libplumed.so" -ldl  )
+set(PLUMED_DEPENDENCIES  "/home/dozeduck/workspace/PLUMED/lib/libplumed.so")

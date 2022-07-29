@@ -1,0 +1,14 @@
+****************************************
+Short helpfile for action CONSTANT
+****************************************
+
+The following options are available
+
+                  NOPBC - ( default=off ) ignore the periodic boundary conditions 
+                          when calculating distances 
+                NODERIV - ( default=off ) Set to TRUE if you want values without 
+                          derivatives. 
+                 VALUES - The values of the constants 
+                  VALUE - The value of the constant 
+
+

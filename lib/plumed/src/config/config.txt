@@ -1,0 +1,120 @@
+# version strings
+# syntax: version short/long/git number
+version short 2.4
+version long 2.4.8
+version git Unknown
+
+# command to lauch mpi processes
+# syntax: mpiexec command
+# empty string means that mpiexec was not chosen at configure time
+mpiexec 
+
+# list of 'has' options
+# syntax: has name on/of
+# if option xx is on then plumed has beeen compiled with -D__PLUMED_HAS_XX
+has boost_graph off
+has boost_serialization off
+has cregex on
+has dlopen on
+has exceptions on
+has execinfo on
+has external_blas off
+has external_lapack off
+has external_molfile_plugins off
+has fftw off
+has gsl on
+has matheval off
+has molfile_plugins on
+has mpi off
+has readdir_r on
+has xdrfile off
+has zlib on
+
+# other defines
+# syntax: define name=value
+define HAVE_INTTYPES_H=1
+define HAVE_MEMORY_H=1
+define HAVE_STDINT_H=1
+define HAVE_STDLIB_H=1
+define HAVE_STRING_H=1
+define HAVE_STRINGS_H=1
+define HAVE_SYS_STAT_H=1
+define HAVE_SYS_TYPES_H=1
+define HAVE_UNISTD_H=1
+define NDEBUG=1
+define PACKAGE_BUGREPORT=""
+define PACKAGE_NAME="PLUMED"
+define PACKAGE_STRING="PLUMED 2"
+define PACKAGE_TARNAME="plumed"
+define PACKAGE_URL=""
+define PACKAGE_VERSION="2"
+define _REENTRANT=1
+define STDC_HEADERS=1
+
+# list of modules
+# syntax: module name on/off (default-on/default-off/always)
+module adjmat off (default-off)
+module analysis on (default-on)
+module bias on (default-on)
+module blas on (always)
+module cltools on (default-on)
+module colvar on (default-on)
+module core on (always)
+module crystallization off (default-off)
+module drr off (default-off)
+module eds off (default-off)
+module function on (default-on)
+module generic on (default-on)
+module gridtools on (always)
+module isdb on (default-on)
+module lapack on (always)
+module lepton on (always)
+module manyrestraints off (default-off)
+module mapping on (default-on)
+module molfile on (default-on)
+module multicolvar on (default-on)
+module reference on (always)
+module secondarystructure on (default-on)
+module setup on (default-on)
+module tools on (always)
+module vatom on (default-on)
+module ves off (default-off)
+module vesselbase on (always)
+
+# Makefile.conf file
+# syntax: makefile_conf followed by a single space followed by a line from makefile_conf
+makefile_conf CC=/usr/bin/gcc
+makefile_conf FC=gfortran
+makefile_conf LDF90=gfortran
+makefile_conf CFLAGS=-g -O2 -fPIC
+makefile_conf CXX=/usr/bin/g++
+makefile_conf CXXFLAGS=-O3 -fPIC -Wall -pedantic -std=c++11 -fopenmp
+makefile_conf CXXFLAGS_NOOPENMP=-O3 -fPIC -Wall -pedantic -std=c++11
+makefile_conf CPPFLAGS= -DPACKAGE_NAME=\"PLUMED\" -DPACKAGE_TARNAME=\"plumed\" -DPACKAGE_VERSION=\"2\" -DPACKAGE_STRING=\"PLUMED\ 2\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -D__PLUMED_HAS_MOLFILE_PLUGINS=1 -D__PLUMED_HAS_READDIR_R=1 -D__PLUMED_HAS_CREGEX=1 -D__PLUMED_HAS_DLOPEN=1 -D__PLUMED_HAS_EXECINFO=1 -D__PLUMED_HAS_ZLIB=1 -D__PLUMED_HAS_GSL=1 -DNDEBUG=1 -D__PLUMED_HAS_EXCEPTIONS=1 -D_REENTRANT=1
+makefile_conf LDFLAGS=
+makefile_conf DYNAMIC_LIBS= -lstdc++ -lgsl -lgslcblas -lz -ldl  -static -rdynamic -fopenmp
+makefile_conf LIBS=-ldl 
+makefile_conf SOEXT=
+makefile_conf LD=/usr/bin/g++
+makefile_conf LDSHARED=/usr/bin/g++ -shared
+makefile_conf GCCDEP=/usr/bin/g++
+makefile_conf disable_dependency_tracking=no
+makefile_conf prefix=/home/dozeduck/workspace/PLUMED
+makefile_conf program_name=plumed
+makefile_conf program_transform_name=s,x,x,
+makefile_conf program_can_run_mpi=
+makefile_conf program_can_run=yes
+makefile_conf make_pdfdoc=no
+makefile_conf make_doc=no
+makefile_conf PACKAGE_TARNAME=plumed
+makefile_conf LD_RO=ld -r -o
+makefile_conf AR_CR=ar cr
+makefile_conf exec_prefix=${prefix}
+makefile_conf bindir=${exec_prefix}/bin
+makefile_conf libdir=${exec_prefix}/lib
+makefile_conf includedir=${prefix}/include
+makefile_conf datarootdir=${prefix}/share
+makefile_conf datadir=${datarootdir}
+makefile_conf docdir=${datarootdir}/doc/${PACKAGE_TARNAME}
+makefile_conf htmldir=${docdir}
+makefile_conf mpiexec=

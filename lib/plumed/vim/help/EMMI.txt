@@ -1,0 +1,27 @@
+****************************************
+Short helpfile for action EMMI
+****************************************
+The input trajectory can be in any of the following formats: 
+
+                  ATOMS - atoms for which we calculate the density map, typically all 
+                          heavy atoms. For more information on how to specify lists of 
+                          atoms see \ref Group 
+
+The following arguments are compulsory: 
+
+               GMM_FILE - file with the parameters of the GMM components 
+                   TEMP - temperature 
+              NL_CUTOFF - The cutoff in overlap for the neighbor list 
+              NL_STRIDE - The frequency with which we are updating the neighbor list 
+             SIGMA_MEAN - starting value for the uncertainty in the mean estimate 
+
+In addition you may use the following options: 
+
+  NUMERICAL_DERIVATIVES - ( default=off ) calculate the derivatives for these 
+                          quantities numerically 
+                  NOPBC - ( default=off ) ignore the periodic boundary conditions 
+                          when calculating distances 
+                NO_AVER - ( default=off ) don't do ensemble averaging in 
+                          multi-replica mode 
+               ANALYSIS - ( default=off ) run in analysis mode 
+

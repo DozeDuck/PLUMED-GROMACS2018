@@ -1,0 +1,12 @@
+prefix=/home/dozeduck/workspace/PLUMED
+exec_prefix=/home/dozeduck/workspace/PLUMED
+includedir=/home/dozeduck/workspace/PLUMED/include
+libdir=/home/dozeduck/workspace/PLUMED/lib
+
+Name: plumed
+Description: Plumed library 
+URL: http://www.plumed.org
+Version: 2.4.8
+Cflags: -I${includedir} 
+Libs: -L${libdir} -lplumed 
+Conflicts: 

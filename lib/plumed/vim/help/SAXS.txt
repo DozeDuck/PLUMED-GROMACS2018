@@ -1,0 +1,100 @@
+****************************************
+Short helpfile for action SAXS
+****************************************
+The input trajectory can be in any of the following formats: 
+
+                  ATOMS - The atoms to be included in the calculation, e.g. the whole 
+                          protein.. For more information on how to specify lists of atoms see 
+                          \ref Group 
+
+The following arguments are compulsory: 
+
+              NOISETYPE - ( default=MGAUSS ) functional form of the noise 
+                          (GAUSS,MGAUSS,OUTLIERS,MOUTLIERS,GENERIC) 
+             LIKELIHOOD - ( default=GAUSS ) the likelihood for the GENERIC 
+                          metainference model, GAUSS or LOGN 
+                DFTILDE - ( default=0.1 ) fraction of sigma_mean used to evolve 
+                          ftilde 
+                 SCALE0 - ( default=1.0 ) initial value of the scaling factor 
+            SCALE_PRIOR - ( default=FLAT ) either FLAT or GAUSSIAN 
+                OFFSET0 - ( default=0.0 ) initial value of the offset 
+           OFFSET_PRIOR - ( default=FLAT ) either FLAT or GAUSSIAN 
+                 SIGMA0 - ( default=1.0 ) initial value of the uncertainty parameter 
+              SIGMA_MIN - ( default=0.0 ) minimum value of the uncertainty parameter 
+              SIGMA_MAX - ( default=10. ) maximum value of the uncertainty parameter 
+           OPTSIGMAMEAN - ( default=NONE ) Set to NONE/SEM to manually set sigma 
+                          mean, or to estimate it on the fly 
+           WRITE_STRIDE - ( default=1000 ) write the status to a file every N steps, 
+                          this can be used for restart/continuation 
+              WATERDENS - ( default=0.334 ) Density of the water to be used for the 
+                          correction of atomistic structure factors. 
+                  SCEXP - ( default=1.0 ) SCALING value of the experimental data. 
+                          Usefull to simplify the comparison. 
+
+In addition you may use the following options: 
+
+  NUMERICAL_DERIVATIVES - ( default=off ) calculate the derivatives for these 
+                          quantities numerically 
+                DOSCORE - ( default=off ) activate metainference 
+             NOENSEMBLE - ( default=off ) don't perform any replica-averaging 
+               REWEIGHT - ( default=off ) simple REWEIGHT using the ARG as energy 
+              SCALEDATA - ( default=off ) Set to TRUE if you want to sample a scaling 
+                          factor common to all values and replicas 
+              ADDOFFSET - ( default=off ) Set to TRUE if you want to sample an offset 
+                          common to all values and replicas 
+                  NOPBC - ( default=off ) ignore the periodic boundary conditions 
+                          when calculating distances 
+                 SERIAL - ( default=off ) Perform the calculation in serial - for 
+                          debug purpose 
+              ATOMISTIC - ( default=off ) calculate SAXS for an atomistic model 
+                MARTINI - ( default=off ) calculate SAXS for a Martini model 
+                 ADDEXP - ( default=off ) Set to TRUE if you want to have fixed 
+                          components with the experimental values. 
+                    ARG - the input for this action is the scalar output from one or 
+                          more other actions. The particular scalars that you will use are 
+                          referenced using the label of the action. If the label appears on its 
+                          own then it is assumed that the Action calculates a single 
+                          scalar value. The value of this scalar is thus used as the input 
+                          to this new action. If * or *.* appears the scalars calculated 
+                          by all the proceding actions in the input file are taken. Some 
+                          actions have multi-component outputs and each component of the 
+                          output has a specific label. For example a \ref DISTANCE action 
+                          labelled dist may have three componets x, y and z. To take just the 
+                          x component you should use dist.x, if you wish to take all 
+                          three components then use dist.*.More information on the 
+                          referencing of Actions can be found in the section of the manual on the 
+                          PLUMED \ref Syntax. Scalar values can also be referenced using 
+                          POSIX regular expressions as detailed in the section on \ref 
+                          Regex. To use this feature you you must compile PLUMED with the 
+                          appropriate flag. You can use multiple instances of this keyword i.e. 
+                          ARG1, ARG2, ARG3... 
+              AVERAGING - Stride for calculation of averaged weights and sigma_mean 
+              SCALE_MIN - minimum value of the scaling factor 
+              SCALE_MAX - maximum value of the scaling factor 
+                 DSCALE - maximum MC move of the scaling factor 
+             OFFSET_MIN - minimum value of the offset 
+             OFFSET_MAX - maximum value of the offset 
+                DOFFSET - maximum MC move of the offset 
+                 DSIGMA - maximum MC move of the uncertainty parameter 
+            SIGMA_MEAN0 - starting value for the uncertainty in the mean estimate 
+                   TEMP - the system temperature - this is only needed if code 
+                          doesnt' pass the temperature to plumed 
+               MC_STEPS - number of MC steps 
+              MC_STRIDE - MC stride 
+           MC_CHUNKSIZE - MC chunksize 
+            STATUS_FILE - write a file with all the data usefull for 
+                          restart/continuation of Metainference 
+               SELECTOR - name of selector 
+                NSELECT - range of values for selector [0, N-1] 
+                RESTART - allows per-action setting of restart (YES/NO/AUTO) 
+                 QVALUE - Selected scattering lenghts in Angstrom are given as 
+                          QVALUE1, QVALUE2, ... . You can use multiple instances of this 
+                          keyword i.e. QVALUE1, QVALUE2, QVALUE3... 
+             PARAMETERS - Used parameter Keywords like PARAMETERS1, PARAMETERS2. 
+                          These are used to calculate the structure factor for the i-th 
+                          atom/bead. You can use multiple instances of this keyword i.e. 
+                          PARAMETERS1, PARAMETERS2, PARAMETERS3... 
+                 EXPINT - Add an experimental value for each q value. You can use 
+                          multiple instances of this keyword i.e. EXPINT1, EXPINT2, EXPINT3... 
+
+

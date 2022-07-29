@@ -1,0 +1,11 @@
+libdir=/home/dozeduck/workspace/PLUMED/gromacs2018-plumed/lib
+
+Name: libgromacs
+Description: Gromacs library
+URL: http://www.gromacs.org
+Version: 2018.6
+Requires:  
+Libs.private: -lpthread  -fopenmp
+Libs: -L${libdir} -lgromacs  -lm 
+Cflags:  -I/home/dozeduck/workspace/PLUMED/gromacs2018-plumed/include -DGMX_DOUBLE=0 -fopenmp -std=c++11 
+
