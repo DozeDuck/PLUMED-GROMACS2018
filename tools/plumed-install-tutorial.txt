@@ -1,0 +1,59 @@
+安装列表
+ wget http://www.netlib.org/blas/blas.tgz
+tar zxf blas.tgz
+# 可能版本有差别
+cd BLAS-3.8.0/
+# 编译
+gfortran -O3 -std=legacy -m64 -fno-second-underscore -fPIC -c *.f
+ar r libfblas.a *.o
+ranlib libfblas.a
+rm -rf *.o      # 清理文件
+export BLAS=~/src/BLAS-3.8.0/libfblas.a # 导出BLAS环境变量
+--------------------------------------------------------------------------
+ wget http://www.netlib.org/lapack/lapack.tgz
+wget http://www.netlib.org/lapack/lapack.tgz
+tar zxf lapack.tgz
+# 可能版本有差别
+cd lapack-3.8.0/
+cp INSTALL/make.inc.gfortran make.inc
+make lapacklib
+make clean      # 清理文件
+export LAPACK=~/src/lapack-3.8.0/   # 导出LAPACK环境变量
+
+--------------------------------------------------------------------------
+如果用GPU版本的话，这里就用不着了！
+ wget http://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz
+mkdir MPI
+cd $MPI
+tar xfz mpich-3.4.1.tar.gz
+mkdir mpich-install
+cd mpich-3.4.1/
+./configure --prefix=$HOME/workspace/MPI/mpich-install
+make
+make install
+export PATH="$mpich-install/bin:$PATH"
+export LD_LIBRARY_PATH="$mpich-install/lib:$LD_LIBRARY_PATH"
+export CXX="$MPICH-INSTALL/bin/mpicxx"
+export CC="$MPICH-INSTALL/bin/mpicc"
+-----------------------------------------------------------------------
+ wget https://github.com/plumed/plumed2/releases/download/v2.7.1/plumed-2.7.1.tgz
+./configure --prefix=$HOME/workspace/PLUMED/plumed2.7.1
+make -j 4
+make install
+export PATH="$plumed2.7.1/bin:$PATH"
+export LD_LIBRARY_PATH="$plumed2.7.1/lib:$LD_LIBRARY_PATH"
+卸载可以使用以下命令：make unistall
+-----------------------------------------------------------------------------
+wget https://ftp.gromacs.org/gromacs/gromacs-2020.5.tar.gz
+cmake .. -DCMAKE_INSTALL_PREFIX=/home/b8048283/workspace/PLUMED/plumed-gromacs2020/gromcs2020.5 -DGMX_OPENMP=ON -DGMX_MPI=ON -DGMX_GPU=OFF -DGMX_BUILD_OWN_FFTW=ON -DGMX_PREFER_STATIC_LIBS=ON
+上面这个cmake是对的，下面这个不对
+cmake .. -DCMAKE_INSTALL_PREFIX=/home/b8048283/workspace/PLUMED/plumed-groma
+cs2020/gromacs2020.5 -DGMX_MPI=on -DGMX_DOUBLE=off -DGMX_OPENMP=ON -DGMX_GPU=off -DGMX_BUILD_OWN_FFTW=on -DGMX_DOUBLE=off
+
+下面这个是安装PLUMED-Gromacs-GPU版本时用的，非常简单，速度贼快！比孔维康那个电脑都快了25%，就是在make check的时候 55个test中的Mdoutput.test失败了，其他54个全部成功。
+cmake .. -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=/home/b8048283/workspace/PLUMED/plumed-gromacs2020/gromacs_plumed_gpu -DGMX_GPU=ON -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+
+make -j 4
+make install
+export PATH=""
+export LD_LIBRARY_PATH=""
